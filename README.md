@@ -15,4 +15,12 @@ Data Binning And Data Formatting Using Python.
 11. sorted_df=df.sort_values (by='Price')-sorted_df=df.sort_values (by='Price').
 12. sorted_df1=df.sort_values(by='Price',ascending=False)-It sorts the dataFrame in descending order based on the Price column.
 13. print(df['Price_Category'].unique())-It returns all unique values in the Price_Category column.
-14. 
+14. df['Order_Value_Category'] = pd.cut(df['Order_Value'], bins=bins, labels=labels)-It categorizes Order_Value into bins with specified labels.
+15. df['Delivery_Speed'] = pd.cut(df['Delivery_Time'], bins=bins2, labels=labels2)-It categorizes Delivery_Time into bins with specified labels.
+16. df['Distance_km'] = df['Distance_km'].astype(float)-It converts the Distance_km column to float data type.
+17. df['Order_Category'] = df['Order_Value_Category'].str.upper()-It converts the Order_Value_Category values to uppercase.
+18. print(df['Order_Category'].unique())-It returns all unique values in the Order_Category column.
+19. print(df['Order_Category'].value_counts())-It counts the frequency of each unique value in the Order_Category column.
+20. df.sort_values(by='Order_Value')-It sorts the DataFrame based on the Order_Value column.
+# Conclusion
+Data binning and data formatting in pandas are important preprocessing techniques that help make raw data more useful and meaningful. Data binning converts continuous values into discrete categories, which simplifies analysis and helps in identifying patterns and trends more easily. On the other hand, data formatting ensures that data is clean, consistent, and in the correct structure by converting data types, standardizing text, and refining numerical values. Together, these techniques enhance data quality, improve accuracy, and make the dataset more suitable for analysis, visualization, and decision-making.
